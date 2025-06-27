@@ -54,3 +54,6 @@ def content_recommend(movie_title, top_n=5):
     return movies['title'].iloc[movie_indices]
 
 print(content_recommend('Toy Story (1995)'))
+
+3. Collaborative Filtering (Using Surprise Library)
+
