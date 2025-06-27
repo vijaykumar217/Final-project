@@ -98,3 +98,9 @@ if st.button('Recommend (Collaborative)'):
     st.write("Top 5 movie predictions:")
     for movie in result:
         st.write(movie)
+
+Output:-
+
+# Top 5 Recommendations:-
+
+['A Bug\'s Life (1995)', 'Monsters, Inc. (2001)', 'Finding Nemo (2003)', 'Shrek (2001)', 'Ice Age (2002)']
