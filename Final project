@@ -67,3 +67,5 @@ trainset, testset = train_test_split(data, test_size=0.2)
 model = SVD()
 model.fit(trainset)
 pred = model.test(testset)
+
+4. Collaborative Recommendation Function
