@@ -1,0 +1,28 @@
+Project Report: Movie Recommendation System
+
+1. Introduction
+With the rise of online platforms, recommendation systems are essential to enhance user satisfaction. Thisproject builds a Movie Recommendation System using Content-Based and Collaborative Filtering with aStreamlit interface.
+
+2. Abstract
+The system utilizes the MovieLens dataset and combines two key models:
+- Content-Based Filtering: Suggests similar movies based on genres using TF-IDF and Cosine Similarity.
+- Collaborative Filtering: Predicts user preferences via SVD-based matrix factorization.
+A Streamlit app integrates both models for a user-friendly experience.
+
+3. Tools & Technologies Used
+- Python, Pandas, NumPy, Scikit-learn, Surprise, Streamlit, Matplotlib, Seaborn
+
+4. Steps Involved in Building the Project
+ A. Data Preprocessing: Loaded MovieLens data, cleaned missing values.
+ B. Content-Based Filtering: TF-IDF on genres, Cosine Similarity for top recommendations.
+ C. Collaborative Filtering: SVD model via Surprise library predicts ratings.
+ D. Streamlit Web App: Clean UI allowing movie title or user ID input.
+ E. Evaluation: Cosine scores, RMSE, MAE for model checks.
+
+5. Conclusion
+A dual-model recommendation engine is developed and deployed via Streamlit. It shows ML, NLP, anddeployment skills and is ideal for AI/Data Science job portfolios.
+
+6. Future Enhancements
+- Sentiment-based filtering
+- Deep Learning methods
+- Full deployment on cloud platforms
