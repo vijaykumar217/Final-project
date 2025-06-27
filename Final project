@@ -43,3 +43,5 @@ ratings = pd.read_csv('ratings.csv')
 tfidf = TfidfVectorizer(stop_words='english')
 tfidf_matrix = tfidf.fit_transform(movies['genres'].fillna(''))
 cos_sim = cosine_similarity(tfidf_matrix, tfidf_matrix)
+
+2. Content-Based Recommendation Function
