@@ -29,7 +29,7 @@ A dual-model recommendation engine is developed and deployed via Streamlit. It s
 
 Project Code Snippet:-
 
-1. Data Preprocessing (MovieLens):
+# Data Preprocessing (MovieLens)
 
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -44,7 +44,7 @@ tfidf = TfidfVectorizer(stop_words='english')
 tfidf_matrix = tfidf.fit_transform(movies['genres'].fillna(''))
 cos_sim = cosine_similarity(tfidf_matrix, tfidf_matrix)
 
-2. Content-Based Recommendation Function:
+# Content-Based Recommendation Function
 
 def content_recommend(movie_title, top_n=5):
     idx = movies[movies['title'] == movie_title].index[0]
@@ -55,7 +55,7 @@ def content_recommend(movie_title, top_n=5):
 
 print(content_recommend('Toy Story (1995)'))
 
-3. Collaborative Filtering (Using Surprise Library):
+# Collaborative Filtering (Using Surprise Library)
 
 from surprise import Dataset, Reader, SVD
 from surprise.model_selection import train_test_split
@@ -68,7 +68,7 @@ model = SVD()
 model.fit(trainset)
 pred = model.test(testset)
 
-4. Collaborative Recommendation Function
+# Collaborative Recommendation Function
 
 def collab_recommend(user_id, top_n=5):
     movie_ids = ratings['movieId'].unique()
@@ -79,4 +79,22 @@ def collab_recommend(user_id, top_n=5):
 
 print(collab_recommend(1))
 
-5. Simple Streamlit UI (app.py)
+# Simple Streamlit UI (app.py)
+
+import streamlit as st
+
+st.title('🎬 Movie Recommendation System')
+option = st.selectbox('Select a Movie:', movies['title'].values)
+
+if st.button('Recommend (Content-Based)'):
+    result = content_recommend(option)
+    st.write("Top 5 similar movies:")
+    for movie in result:
+        st.write(movie)
+
+user_id = st.number_input('Enter User ID for Collaborative Filtering:', min_value=1, step=1)
+if st.button('Recommend (Collaborative)'):
+    result = collab_recommend(int(user_id))
+    st.write("Top 5 movie predictions:")
+    for movie in result:
+        st.write(movie)
