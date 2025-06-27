@@ -30,3 +30,16 @@ A dual-model recommendation engine is developed and deployed via Streamlit. It s
 Project Code Snippet:-
 
 1. Data Preprocessing (MovieLens)
+
+import pandas as pd
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+
+# Load datasets
+movies = pd.read_csv('movies.csv')
+ratings = pd.read_csv('ratings.csv')
+
+# Content-Based Filtering - TFIDF on genres
+tfidf = TfidfVectorizer(stop_words='english')
+tfidf_matrix = tfidf.fit_transform(movies['genres'].fillna(''))
+cos_sim = cosine_similarity(tfidf_matrix, tfidf_matrix)
