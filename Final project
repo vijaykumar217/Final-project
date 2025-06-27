@@ -26,3 +26,7 @@ A dual-model recommendation engine is developed and deployed via Streamlit. It s
 - Sentiment-based filtering
 - Deep Learning methods
 - Full deployment on cloud platforms
+
+Project Code Snippet:-
+
+1. Data Preprocessing (MovieLens)
