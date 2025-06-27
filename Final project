@@ -69,3 +69,12 @@ model.fit(trainset)
 pred = model.test(testset)
 
 4. Collaborative Recommendation Function
+
+def collab_recommend(user_id, top_n=5):
+    movie_ids = ratings['movieId'].unique()
+    predictions = [model.predict(user_id, movie_id) for movie_id in movie_ids]
+    pred_ratings = sorted(predictions, key=lambda x: x.est, reverse=True)[:top_n]
+    movie_titles = movies.set_index('movieId').loc[[pred.iid for pred in pred_ratings]]['title']
+    return movie_titles.values
+
+print(collab_recommend(1))
